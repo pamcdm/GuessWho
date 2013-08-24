@@ -7,45 +7,20 @@ What to expect from the calls to the service
 gets:
 ---------
 
-/players: returns all the people
-```json
-[
-  {
-    realName: 'Gerard',
-    fictionalName: 'Leonidas'
-  },
-  {
-    realName: 'John',
-    fictionalName: 'Jack Sparrow'
-  },
-  {
-    realName: 'Patrick',
-    fictionalName: 'Captain Pickard'
-  }
-]
+/player/{id}: retrieves information from a player
 
-/players/except/{playerName}: returns all the people except for the one requesting it
-```json
-[
-  {
-    realName: 'Gerard',
-    fictionalName: 'Leonidas'
-  },
-  {
-    realName: 'John',
-    fictionalName: 'Jack Sparrow'
-  },
-]
-```
-/player/{realName}: retrieves information from a person (finds it based on realName)
+/player/all: returns all the people
+
+/players/{id}/otherPlayers: returns all the people except for the one specified by id
 
 posts:
 ----------
 /player : saves a player
+parameter: player name
 
 delete:
 -----------
-/player : deletes a player
+/player/{id} : deletes a player
 =======
 GuessWho
 ========

@@ -16,13 +16,14 @@ var mockPLayers = [
   }
 ];
 
-app.players('/players', function(req, res){
+app.get('/player/all', function(req, res){
   res.send(JSON.stringify(mockPlayers));
 });
 
-app.players('/players/except/:playerName', function(req, res){
+app.get('/player/:id/otherPlayers', function(req, res){
   res.send(JSON.stringify(mockPlayers));
 });
 
 app.listen(3000);
-console.log('Listening on port 3000');
+console.log('Listening on port 3000, routes supported:');
+console.log('%j\n',app.routes);
