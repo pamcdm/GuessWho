@@ -10,35 +10,31 @@ gets:
 /players: returns all the people
 ```json
 [
-	person: {
-	  realName: 'Gerard'
-	  fictionalName: 'Leonidas'
-	},
-	person: {
-	  realName: 'John'
-	  fictionalName: 'Jack Sparrow'
-	},
-	person: {
-	  realName: 'Patrick'
-	  fictionalName: 'Captain Pickard'
-	}
+  {
+    realName: 'Gerard',
+    fictionalName: 'Leonidas'
+  },
+  {
+    realName: 'John',
+    fictionalName: 'Jack Sparrow'
+  },
+  {
+    realName: 'Patrick',
+    fictionalName: 'Captain Pickard'
+  }
 ]
 
-/playersExcluding/{playerName}: returns all the people except for the one requesting it
+/players/except/{playerName}: returns all the people except for the one requesting it
 ```json
 [
-	person: {
-	  realName: 'Gerard'
-	  fictionalName: 'Leonidas'
-	},
-	person: {
-	  realName: 'John'
-	  fictionalName: 'Jack Sparrow'
-	},
-	person: {
-	  realName: 'Patrick'
-	  fictionalName: 'Captain Pickard'
-	}
+  {
+    realName: 'Gerard',
+    fictionalName: 'Leonidas'
+  },
+  {
+    realName: 'John',
+    fictionalName: 'Jack Sparrow'
+  },
 ]
 ```
 /player/{realName}: retrieves information from a person (finds it based on realName)
