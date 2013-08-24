@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 
-var mockPLayers = [
+var mockPlayers = [
   {
     realName: 'Gerard',
     fictionalName: 'Leonidas'
@@ -16,12 +16,18 @@ var mockPLayers = [
   }
 ];
 
-app.get('/player/all', function(req, res){
+app.get('/player/all', function (req, res) {
   res.send(JSON.stringify(mockPlayers));
 });
 
-app.get('/player/:id/otherPlayers', function(req, res){
+app.get('/player/:id/otherPlayers', function (req, res) {
   res.send(JSON.stringify(mockPlayers));
+});
+
+app.post('/player', function (req, res) {
+  var name = req.param('name');
+  var newPlayer = {realName: name, fictionalName: 'change me'};
+  res.send(JSON.stringify(newPlayer));
 });
 
 app.listen(3000);
