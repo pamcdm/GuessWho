@@ -7,6 +7,7 @@
 
   <link rel="stylesheet" href="styles/bootstrap.css">
   <link rel="stylesheet" href="styles/bootstrap-responsive.css">
+  <link rel="stylesheet" href="lib/flat-ui-official/css/flat-ui.css">
 
   <!-- <link rel="stylesheet" href="styles/base.css"> -->
   <!-- <link rel="stylesheet" href="styles/headers.css"> -->
@@ -20,13 +21,7 @@
 
   <div class="container-fluid">
     <div class="row-12">
-      <form>
-        <fieldset>
-          <legend>Who are You</legend>
-          <input type="text" class="input-block-level" placeholder="What is your name?">
-          <button type="submit" class="btn btn-large btn-primary btn-block">Play</button>
-        </fieldset>
-      </form>
+      <div class="ng-view"></div>
     </div>
   </div>
 
@@ -37,5 +32,6 @@
   <script src="lib/angular/angular.js"></script>
   <script src="lib/angular-route/angular-route.js"></script>
   <script src="scripts/app.js"></script>
+  <script src="scripts/controllers.js"></script>
 </body>
 </html>
