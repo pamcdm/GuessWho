@@ -2,14 +2,6 @@ var express = require('express');
 var app = express();
 app.use(express.logger());
 
-var Game = require('./lib/Game.js');
-var Player = require('./lib/Player.js');
-var GameService = require('./lib/GameService.js');
-
-
-var gameService = GameService.create({Game:Game,Player:Player});
-var game = gameService.createGame('uniqueGame');
-
 var mockPlayers = [
   {
     realName: 'Gerard',
@@ -25,8 +17,17 @@ var mockPlayers = [
   }
 ];
 
+var gameId = 'uniqueGame';
+var Game = require('./lib/Game.js');
+var Player = require('./lib/Player.js');
+var GameService = require('./lib/GameService.js');
+
+var gameService = GameService.create({Game:Game,Player:Player});
+var game = gameService.createGame(gameId);
+gameService.createPlayerInGame(gameId,'monkey magic');
+
 app.get('/player/all', function (req, res) {
-  res.send(JSON.stringify(mockPlayers));
+  res.send(JSON.stringify(gameService.playersInGame(gameId)));
 });
 
 app.get('/player/:id/otherPlayers', function (req, res) {
@@ -34,11 +35,13 @@ app.get('/player/:id/otherPlayers', function (req, res) {
 });
 
 app.post('/player', function (req, res) {
-  var name = req.param('name');
-  var newPlayer = {realName: name, fictionalName: 'change me'};
-  res.send(JSON.stringify(newPlayer));
+  var realName = req.param('realName');
+  var fictionalName = req.param('fictionalName');
+  var response = {success : true};
+  gameService.createPlayerOnGame(gameId, name);
+  res.send(JSON.stringify(response));
 });
 
 app.listen(3000);
-console.log('Listening on port 3000, routes supported:');
+console.log('Listening on port 3000\n routes supported:');
 console.log('%j\n',app.routes);
