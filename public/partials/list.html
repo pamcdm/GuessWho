@@ -6,10 +6,18 @@
 			<th>Alias</th>
 		</tr>
 		<tr ng-repeat="player in players">
-			<td ng-bind="player.name"></td>
+			<td ng-bind="player.realName"></td>
 			<td>
-				<input type="text" ng-model="player.alias">
+				
+				<input type="text" name="fictionalName" 
+					   ng-model="newFictionalName" ng-hide="player.fictionalName" >
+				
+				<span ng-bind="player.fictionalName" ng-show="player.fictionalName"> </span>
+				
+				<button class="btn btn-link" ng-click="updateFicionalName(player,newFictionalName)"> save </button>
 			</td>
+			
+			
 		</tr>
 	</table>
 	
