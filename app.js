@@ -1,5 +1,14 @@
 var express = require('express');
 var app = express();
+app.use(express.logger());
+
+var Game = require('./lib/Game.js');
+var Player = require('./lib/Player.js');
+var GameService = require('./lib/GameService.js');
+
+
+var gameService = GameService.create({Game:Game,Player:Player});
+var game = gameService.createGame('uniqueGame');
 
 var mockPlayers = [
   {
