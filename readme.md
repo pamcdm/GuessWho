@@ -4,11 +4,27 @@ Documentation will be added as we see fit.
 
 What to expect from the calls to the service
 =============================================
-on gets:
+gets:
 ---------
-/begin : returns the initial page
 
-/everyone: returns all the people
+/players: returns all the people
+```json
+[
+	person: {
+	  realName: 'Gerard'
+	  fictionalName: 'Leonidas'
+	},
+	person: {
+	  realName: 'John'
+	  fictionalName: 'Jack Sparrow'
+	},
+	person: {
+	  realName: 'Patrick'
+	  fictionalName: 'Captain Pickard'
+	}
+]
+
+/playersExcluding/{playerName}: returns all the people except for the one requesting it
 ```json
 [
 	person: {
@@ -25,12 +41,15 @@ on gets:
 	}
 ]
 ```
-/person/realName: retrieves information from a person (finds it based on realName)
+/player/{realName}: retrieves information from a person (finds it based on realName)
 
-on posts:
+posts:
 ----------
-/person : saves or creates a person in a determined game
+/player : saves a player
+
+delete:
+-----------
+/player : deletes a player
 =======
 GuessWho
 ========
-
