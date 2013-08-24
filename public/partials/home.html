@@ -1,7 +1,7 @@
 <div>
-	<form name="form" ng-submit="joinGame()" >
+	<form name="form" ng-submit="actions.joinGame()" >
   	<fieldset>
-    	<legend>Who are You</legend>
+    	<legend>Guess who</legend>
     	<input type="text" name="name" class="input-block-level" placeholder="What is your name?" ng-model="name" required>
     	<button type="submit" class="btn btn-large btn-primary btn-block" ng-disabled="form.name.$error.required" >Play</button>
   	</fieldset>
