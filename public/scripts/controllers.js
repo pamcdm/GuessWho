@@ -11,6 +11,16 @@ angular.module('myApp').
 				});
 		};
   }]).
-  controller('ListController',[function(){
+  controller('ListController',['$scope','$http',function($scope,$http){
+	$http.get('/players').
+		success( function (players){
+			$scope.players = players;
+		}).
+		error( function(data,status){
+			$scope.error = "We couldn't find players :(";
+		});
+
+    	
+	
 
   }])

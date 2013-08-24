@@ -1,1 +1,19 @@
-<h1>list</h1>
+<div>
+	
+	<table class="table">
+		<tr>
+			<th>Player</th>
+			<th>Alias</th>
+		</tr>
+		<tr ng-repeat="player in players">
+			<td ng-bind="player.name"></td>
+			<td>
+				<input type="text" ng-model="player.alias">
+			</td>
+		</tr>
+	</table>
+	
+	<div class="alert alert-error" ng-bind="error" ng-show="error">
+	</div>
+</div>
+
