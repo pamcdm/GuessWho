@@ -39,8 +39,9 @@ app.get('/player/:id/otherPlayers', function (req, res) {
 });
 
 app.post('/player', function (req, res) {
-  var realName = req.param('realName');
-  var fictionalName = req.param('fictionalName');
+  var newPlayer = Player.create();
+  newPlayer.realName = req.param('realName');
+  newPlayer.fictionalName = req.param('fictionalName');
   var response = {success : true};
   gameService.savePlayerInGame(gameId,player);
   res.json(response);
