@@ -16,10 +16,13 @@ describe('game service', function () {
     expect(game).not.to.be(null);
   });
 
-  it('creates player in game', function () {
+  it('saves player in game', function () {
     var gameService = GameService.create({'Game':Game,'Player':Player});
     game = gameService.createGame('uniqueId');
-    gameService.createPlayerInGame('uniqueId', 'realName');
+    player = Player.create();
+    player.realName = 'realName';
+    player.fictionalName = 'fictionalName';
+    gameService.savePlayerInGame('uniqueId', player);
     expect(game.playerCount()).to.be(1);
   });
 

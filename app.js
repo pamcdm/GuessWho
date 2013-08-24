@@ -24,7 +24,11 @@ var GameService = require('./lib/GameService.js');
 
 var gameService = GameService.create({Game:Game,Player:Player});
 var game = gameService.createGame(gameId);
-gameService.createPlayerInGame(gameId,'monkey magic');
+var newPlayer = Player.create();
+
+newPlayer.realName = 'Monkey';
+newPlayer.fictionalName = 'Magid';
+gameService.savePlayerInGame(gameId,newPlayer);
 
 app.get('/player/all', function (req, res) {
   res.send(JSON.stringify(gameService.playersInGame(gameId)));
@@ -38,7 +42,7 @@ app.post('/player', function (req, res) {
   var realName = req.param('realName');
   var fictionalName = req.param('fictionalName');
   var response = {success : true};
-  gameService.createPlayerOnGame(gameId, name);
+  gameService.savePlayerInGame(gameId,player);
   res.send(JSON.stringify(response));
 });
 
