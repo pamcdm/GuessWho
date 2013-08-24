@@ -35,6 +35,11 @@ app.get('/player/all', function (req, res) {
 });
 
 app.get('/player/:id/otherPlayers', function (req, res) {
+  var allPlayers = gameService.playersInGame(gameId);
+  var playerName = req.param('id');
+  var filteredPlayers = _.filter(allPlayers, function (player){
+    return (player != playerName);
+  });
   res.json(mockPlayers);
 });
 
