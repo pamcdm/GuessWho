@@ -18,12 +18,36 @@ angular.module('myApp').
 		};
   }]).
   controller('ListController',['$scope','$http',function($scope,$http){
-	$http.get('http://localhost:3000/player/all').
+	
+	$scope.players = [
+	  {
+	    realName: 'Gerard',
+	    fictionalName: ''
+	  },
+	  {
+	    realName: 'John',
+	    fictionalName: 'Jack Sparrow'
+	  },
+	  {
+	    realName: 'Patrick',
+	    fictionalName: 'Captain Pickard'
+	  }
+	];
+	
+	$scope.updateFicionalName = function(player,newFictionalName){
+	   player.fictionalName = newFictionalName;
+	   //post to update to the other players
+	}	
+	
+/*	$http.get('http://localhost:3000/player/all').
 		then( function (players){
 			$scope.players = players;
 		}, 	function(data,status){
 				$scope.error = "We couldn't find players :(";
-			});
+			});*/
     	
+
+
+
 
   }])
