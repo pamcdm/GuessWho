@@ -1,7 +1,7 @@
 {
     "version": "1",
     "name": "Guess Who",
-    "launch_path": "/GuessWho/index.html",
+    "launch_path": "index.html",
     "description": "GuessWho Game",
     "icons": {
         "16": "/Firefox-OS-Boilerplate-App/images/logo16.png",
@@ -11,8 +11,8 @@
         "128": "/Firefox-OS-Boilerplate-App/images/logo128.png"
     },
     "developer": {
-        "name": "Robert Nyman",
-        "url": "http://robertnyman.com"
+        "name": "Cool Kids",
+        "url": "http://thoughtworks.com"
     },
     "installs_allowed_from": ["*"],
     "default_locale": "en",

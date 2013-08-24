@@ -1,3 +1,6 @@
+This is an awesome game you can play with your friends at home, at a bar, at the park, everywhere! Just try to figure out who your are !
+
+Documentation will be added as we see fit.
 
 What to expect from the calls to the service
 =============================================
@@ -27,3 +30,7 @@ on gets:
 on posts:
 ----------
 /person : saves or creates a person in a determined game
+=======
+GuessWho
+========
+
