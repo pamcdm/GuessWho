@@ -31,13 +31,11 @@ newPlayer.fictionalName = 'Magid';
 gameService.savePlayerInGame(gameId,newPlayer);
 
 app.get('/player/all', function (req, res) {
-  res.writeHead(200, { 'Content-Type': 'application/json' });
-  res.send(JSON.stringify(gameService.playersInGame(gameId)));
+  res.json(gameService.playersInGame(gameId));
 });
 
 app.get('/player/:id/otherPlayers', function (req, res) {
-  res.writeHead(200, { 'Content-Type': 'application/json' });
-  res.send(JSON.stringify(mockPlayers));
+  res.json(mockPlayers);
 });
 
 app.post('/player', function (req, res) {
@@ -45,8 +43,7 @@ app.post('/player', function (req, res) {
   var fictionalName = req.param('fictionalName');
   var response = {success : true};
   gameService.savePlayerInGame(gameId,player);
-  res.writeHead(200, { 'Content-Type': 'application/json' });
-  res.send(JSON.stringify(response));
+  res.json(response);
 });
 
 app.listen(3000);
