@@ -2,12 +2,12 @@
 angular.module('myApp',['ngRoute'])
     .config(['$routeProvider', function ($routeProvider) {
 
-    /*  $routeProvider.when('/', {
+      $routeProvider.when('/', {
       	templateUrl: 'partials/home.html',
       	controller: 'HomeController'
-      });*/
+      });
 
-      $routeProvider.when('/',
+      $routeProvider.when('/list',
       	{
       		templateUrl: 'partials/list.html',
       		controller: 'ListController'

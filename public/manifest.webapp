@@ -3,6 +3,7 @@
     "name": "Guess Who",
     "launch_path": "index.html",
     "description": "GuessWho Game",
+    "type": "privileged",
     "icons": {
         "16": "/Firefox-OS-Boilerplate-App/images/logo16.png",
         "32": "/Firefox-OS-Boilerplate-App/images/logo32.png",
@@ -17,6 +18,7 @@
     "installs_allowed_from": ["*"],
     "default_locale": "en",
     "permissions": {
+        "systemXHR": {},
         "desktop-notification": {
             "description" : "To show notifications"
         },

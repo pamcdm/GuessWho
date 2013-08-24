@@ -1,5 +1,5 @@
 <div>
-	
+
 	<table class="table">
 		<tr>
 			<th>Player</th>
@@ -8,19 +8,19 @@
 		<tr ng-repeat="player in players">
 			<td ng-bind="player.realName"></td>
 			<td>
-				
-				<input type="text" name="fictionalName" 
-					   ng-model="newFictionalName" ng-hide="player.fictionalName" >
-				
+				<input type="text" class="input-small" name="fictionalName" ng-model="newFictionalName" ng-hide="player.fictionalName" >
 				<span ng-bind="player.fictionalName" ng-show="player.fictionalName"> </span>
-				
-				<button class="btn btn-link" ng-click="updateFicionalName(player,newFictionalName)"> save </button>
 			</td>
-			
-			
+			<td>
+				<button class="btn btn-success btn-link"
+								ng-click="updateFicionalName(player,newFictionalName)"
+								ng-hide="player.fictionalName">Save</button>
+			</td>
+
+
 		</tr>
 	</table>
-	
+	<a href="#/" class="btn btn-small btn-primary ">Back</a>
 	<div class="alert alert-error" ng-bind="error" ng-show="error">
 	</div>
 </div>
