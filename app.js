@@ -2,6 +2,17 @@ var express = require('express');
 var app = express();
 app.use(express.logger());
 
+var allowCrossDomain = function(req, res, next){
+  res.header('Access-Control-Allow-Origin', '*')
+  res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE')
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+}
+
+app.configure(function(){
+  app.use(allowCrossDomain);
+});
+
 var mockPlayers = [
   {
     realName: 'Gerard',
@@ -26,21 +37,12 @@ var gameService = GameService.create({Game:Game,Player:Player});
 var game = gameService.createGame(gameId);
 var newPlayer = Player.create();
 
-newPlayer.realName = 'Monkey';
-newPlayer.fictionalName = 'Magid';
-gameService.savePlayerInGame(gameId,newPlayer);
+// newPlayer.realName = 'Monkey';
+// newPlayer.fictionalName = 'Magid';
+// gameService.savePlayerInGame(gameId,newPlayer);
 
 app.get('/player/all', function (req, res) {
   res.json(gameService.playersInGame(gameId));
-});
-
-app.get('/player/:id/otherPlayers', function (req, res) {
-  var allPlayers = gameService.playersInGame(gameId);
-  var playerName = req.param('id');
-  var filteredPlayers = _.filter(allPlayers, function (player){
-    return (player != playerName);
-  });
-  res.json(mockPlayers);
 });
 
 app.post('/player', function (req, res) {
@@ -48,7 +50,7 @@ app.post('/player', function (req, res) {
   newPlayer.realName = req.param('realName');
   newPlayer.fictionalName = req.param('fictionalName');
   var response = {success : true};
-  gameService.savePlayerInGame(gameId,player);
+  gameService.savePlayerInGame(gameId,newPlayer);
   res.json(response);
 });
 

@@ -1,11 +1,15 @@
-<div>
 
-	<table class="table">
+<div>
+	<div class="well">
+    <h1>Guess Who</h1>
+  </div>
+
+	<table class="table table-condensed table-striped">
 		<tr>
 			<th>Player</th>
 			<th>Alias</th>
 		</tr>
-		<tr ng-repeat="player in players">
+		<tr ng-repeat="player in players | filter:filterMe">
 			<td ng-bind="player.realName"></td>
 			<td>
 				<input type="text" class="input-small" name="fictionalName" ng-model="newFictionalName" ng-hide="player.fictionalName" >
@@ -20,8 +24,17 @@
 
 		</tr>
 	</table>
-	<a href="#/" class="btn btn-small btn-primary ">Back</a>
 	<div class="alert alert-error" ng-bind="error" ng-show="error">
 	</div>
+
+	<div class="alert alert-info" ng-hide="players | filter:filterMe">
+		You are alone in the game, type refresh when your friends enter
+	</div>
+
+	<div class="well">
+		<a ng-click="back()" class="btn btn-small btn-info ">Back</a>
+		<a ng-click="refresh()"  class="btn btn-small btn-primary pull-right">Refresh</a>
+	</div>
+
 </div>
 

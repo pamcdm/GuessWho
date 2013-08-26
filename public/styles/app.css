@@ -13,3 +13,29 @@ body {
  }
 
 }
+
+.actions {
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+table {
+	border-top: none;
+}
+
+.input-name {
+	padding: 10px 0;
+}
+
+.table th {
+	border: none;
+}
+
+.table td {
+	height: 30px;
+	vertical-align: middle;
+}
+
+.table td input {
+	margin-top: 10px;
+}
