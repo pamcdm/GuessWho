@@ -8,15 +8,16 @@
 		<tr>
 			<th>Player</th>
 			<th>Alias</th>
+			<th></th>
 		</tr>
 		<tr ng-repeat="player in players | filter:filterMe">
 			<td ng-bind="player.realName"></td>
 			<td>
-				<input type="text" class="input-small" name="fictionalName" ng-model="newFictionalName" ng-hide="player.fictionalName" >
+				<input type="text" class="span2" name="fictionalName" ng-model="newFictionalName" ng-hide="player.fictionalName" >
 				<span ng-bind="player.fictionalName" ng-show="player.fictionalName"> </span>
 			</td>
 			<td>
-				<button class="btn btn-success btn-link"
+				<button class="btn btn-success btn-link span1"
 								ng-click="updateFicionalName(player,newFictionalName)"
 								ng-hide="player.fictionalName">Save</button>
 			</td>

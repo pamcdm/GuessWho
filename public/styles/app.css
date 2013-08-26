@@ -39,3 +39,8 @@ table {
 .table td input {
 	margin-top: 10px;
 }
+
+
+.input-name {
+	/*padding: 2px 0 !important;*/
+}
